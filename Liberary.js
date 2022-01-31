@@ -56,3 +56,26 @@ const addPost = () => {
         console.log(res)
     })
 }
+
+
+const updatePatch = ()=>{
+    let petch = document.getElementById('petch').value;
+    let id = document.getElementById('id').value
+    fetch(`http://localhost:3000/books/${id}`,{
+        method: 'PATCH',
+        headers:{
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+           
+            comments: petch
+        })
+    })
+    .then((res)=>{
+        res.json()
+    })
+    .then((res)=>{
+        console.log(res)
+    })
+}
